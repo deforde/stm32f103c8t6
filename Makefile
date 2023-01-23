@@ -50,7 +50,7 @@ clean:
 	@rm -rf $(addprefix $(BUILD_DIR)/,$(filter-out compile_commands.json,$(shell ls $(BUILD_DIR))))
 
 compdb: clean
-	@bear -- $(MAKE) san
+	@bear -- $(MAKE)
 	@mv compile_commands.json build
 
 valgrind: debug

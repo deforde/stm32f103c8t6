@@ -1,2 +1,3 @@
 build/
 libopencm3/
+.cache/
