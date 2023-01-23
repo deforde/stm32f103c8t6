@@ -1,4 +1,4 @@
-# stm32f103c8t6 Development without STM IDEs and propriety flashing tools
+# stm32f103c8t6 ("blue pill") development without proprietary tools and IDEs
 
 
 ## Dependencies:
