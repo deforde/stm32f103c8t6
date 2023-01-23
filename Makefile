@@ -1,8 +1,6 @@
 TARGET_NAME := stm32f103c8t6_blink
 
 CC := arm-none-eabi-gcc
-AR := arm-none-eabi-ar
-LD := arm-none-eabi-ld
 OBJCP := arm-none-eabi-objcopy
 
 BUILD_DIR := build
@@ -41,7 +39,7 @@ $(LIBOPENCM3):
 	cd libopencm3 && \
 	make
 
-.PHONY: clean compdb valgrind flash
+.PHONY: clean compdb flash
 
 flash: all
 	openocd -f interface/stlink.cfg -f board/stm32f103c8_blue_pill.cfg -c "program $(OUT_FILE) 0x08000000 verify reset exit"
@@ -52,8 +50,5 @@ clean:
 compdb: clean
 	@bear -- $(MAKE)
 	@mv compile_commands.json build
-
-valgrind: debug
-	@valgrind ./$(TARGET)
 
 -include $(DEPS)
